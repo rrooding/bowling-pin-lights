@@ -60,6 +60,7 @@ const int magicSequence[16][5] = {
 
 // Some variables for state keeping
 int readings[numLights][numReadings];
+int totals[numLights];
 int readingIndex = 0;
 long lightState[numLights];
 
@@ -142,10 +143,11 @@ void initReadings() {
   DEBUG_PRINT("Initializing readings");
   for(int i = 0; i < numLights; i++) {
     for(int y = 0; y < numReadings; y++) {
-      readings[x][y] = 0;
+      readings[i][y] = 0;
     }
 
-    lightState[x] = 0;
+    lightState[i] = 0;
+    totals[i] = 0;
   }
 }
 
